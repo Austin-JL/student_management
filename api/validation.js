@@ -20,8 +20,10 @@ const studentValidation = data => {
 
 const courseValidation = data => {
     const schema = Joi.object({
+        courseId: Joi.string().required(),
         level: Joi.string().required(),
         instructor: Joi.string().required(),
+        remainCap: Joi.number().required(),
     });
     return schema.validate(data)
 };
