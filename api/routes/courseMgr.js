@@ -9,15 +9,19 @@ exports.saveCourse = async function(req,res,next){
 
     //Create a new Course
     const course = new Course({
-        courseId: req.body.courseId,
         level: req.body.level,
         instructor: req.body.instructor,
         remainCap: req.body.remainCap,
     });
-    try{
-        const saveCourse = await course.save();
-        res.send( {course: course._id});
-    }catch(err){
-        res.status(400).send(err);
-    }
+
+    course.save(function (err, course) {
+        console.log("[DEBUG]:courseMgr.save invoked");
+        if (!err) {
+            console.dir(course);
+            res.redirect('/courseRegister/addTime');
+        } else {
+            console.dir(err);
+            res.status(400).send(err);
+        }
+    });
 }

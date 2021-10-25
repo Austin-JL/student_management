@@ -1,19 +1,12 @@
-const { string, number } = require('@hapi/joi');
+const { string, number, date } = require('@hapi/joi');
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 
-const courseShcema = new mongoose.Schema({
-    courseId: { 
-        type: String, 
-        required: true, 
-        index: true, 
-        unique: true 
-    },
+const courseSchema = new mongoose.Schema({
     level:{
-        type:String,
-        requred: true,
-        max: 255
+        type: String,
+        required: true,
     },
     instructor:{
         type: String,
@@ -23,11 +16,8 @@ const courseShcema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    schedule: [
-        { type: mongoose.Schema.Types.ObjectId, ref: 'schedule' }
-    ]
 });
 
 courseShcema.plugin(uniqueValidator, { mongoose: mongoose });
 
-module.exports = mongoose.model('Course',courseShcema)
+module.exports = mongoose.model('Course',courseSchema)

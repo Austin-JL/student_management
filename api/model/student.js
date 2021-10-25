@@ -39,13 +39,6 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
-
-    //class schedule
-
-    assignSchedule:[{ 
-            type: mongoose.Schema.Types.ObjectId, ref: 'schedule' 
-        }]
 });
 
 studentSchema.plugin(uniqueValidator, { mongoose: mongoose });

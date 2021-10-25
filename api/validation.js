@@ -8,7 +8,6 @@ const studentValidation = data => {
     const schema = Joi.object({
         name: Joi.string().min(6).required(),
         email: Joi.string().min(6).required().email(),
-        // password: Joi.string().min(6).required()
         phone: Joi.string().min(10).required(),
         gender: Joi.string().valid('Male', 'Female').required(),
         age: Joi.number().required(),
@@ -20,7 +19,6 @@ const studentValidation = data => {
 
 const courseValidation = data => {
     const schema = Joi.object({
-        courseId: Joi.string().required(),
         level: Joi.string().required(),
         instructor: Joi.string().required(),
         remainCap: Joi.number().required(),
@@ -31,9 +29,9 @@ const courseValidation = data => {
 
 const scheduleValidation = data => {
     const schema = Joi.object({
-        courseDate: Joi.string().valid('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday').required(),
-        startTime: Joi.string().required(),
-        endTime: Joi.string().required(),
+        date: Joi.date().required(),
+        start_time: Joi.date().required(),
+        end_time: Joi.date().required(),
         
     });
     return schema.validate(data)

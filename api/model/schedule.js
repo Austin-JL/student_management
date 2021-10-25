@@ -2,22 +2,25 @@ const { string, number } = require('@hapi/joi');
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
+
+
 const scheduleSchema = new mongoose.Schema({
-        courseDate:{
-            type: String,
-            enum: ['Monday', 'Tuesday', 
-                'Wednesday', 'Thursday', 
-                'Friday', 'Saturday', 'Sunday'],
-            required: true
-        },
-        startTime:{
-            type: String,
-            required: true
-        },
-        endTime:{
-            type: String,
-            required: true
-        }
+    courseId: { 
+        type: String, 
+        required: true, 
+        index: true, 
+        unique: true 
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    start_time:{
+        type: Date,
+    },
+    end_time:{
+        type: Date
+    }
 });
 
 scheduleSchema.plugin(uniqueValidator, { mongoose: mongoose });
