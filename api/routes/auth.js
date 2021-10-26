@@ -11,7 +11,7 @@ const courseMgr = require("./courseMgr")
 
 router.post('/studentRegister', studentMgr.saveStudent);
 router.post('/courseRegister', courseMgr.saveCourse);
-
+router.post('/courseRegister/:id/addTime')
 
 
 
