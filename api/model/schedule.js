@@ -5,6 +5,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 
 const scheduleSchema = new mongoose.Schema({
+    //id of courseSchema
     courseId: { 
         type: String, 
         required: true, 

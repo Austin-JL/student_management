@@ -39,6 +39,10 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    //save schedule id for student
+    schedules: [{
+        type: String
+      }]
 });
 
 studentSchema.plugin(uniqueValidator, { mongoose: mongoose });

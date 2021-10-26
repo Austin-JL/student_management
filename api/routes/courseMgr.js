@@ -18,7 +18,7 @@ exports.saveCourse = async function(req,res,next){
         console.log("[DEBUG]:courseMgr.save invoked");
         if (!err) {
             console.dir(course);
-            res.redirect('/courseRegister/addTime');
+            res.status(200).send({course: course._id})
         } else {
             console.dir(err);
             res.status(400).send(err);
