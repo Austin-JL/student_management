@@ -8,12 +8,11 @@ const {studentValidation, courseValidation,scheduleValidation} = require('../val
 
 const studentMgr = require("./studentMgr")
 const courseMgr = require("./courseMgr")
+const scheduleMgr = require('./scheduleMgr')
 
 router.post('/studentRegister', studentMgr.saveStudent);
 router.post('/courseRegister', courseMgr.saveCourse);
-router.post('/courseRegister/:id/addTime')
-
-
+router.post('/courseRegister/addTime/:id', scheduleMgr.saveSchedule)
 
 //Login
 // router.post('/login', async (req,res) => {

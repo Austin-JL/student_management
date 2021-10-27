@@ -20,16 +20,20 @@ POST /course/schedule/create
 
 ```json
 {
-    "_id": "",
-    "start_date": "2021-01-01",
-    "end_date": "2022-01-01",
-    "shcedule": [
+    "start_date" : "2021-11-09 EST",
+    "end_date" : "2021-12-09 EST",
+    "schedules": [
         {
-            "day": "Monday",
-            "start_time": "",
-            "end_time": ""
+            "day": 1,
+            "start_time" : "4 PM",
+            "end_time": "5 PM"
         },
-        ...
+
+        {
+            "day": 3,
+            "start_time" : "2 PM",
+            "end_time": "3 PM"
+        }
     ]
 }
 ```

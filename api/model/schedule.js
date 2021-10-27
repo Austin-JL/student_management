@@ -8,19 +8,21 @@ const scheduleSchema = new mongoose.Schema({
     //id of courseSchema
     courseId: { 
         type: String, 
-        required: true, 
-        index: true, 
-        unique: true 
+        required: true
     },
-    date: {
-        type: Date,
-        default: Date.now
+    course_date: {
+        type: String,
+    },
+    day: {
+        type: Number,
+        min: 0,
+        max: 6,
     },
     start_time:{
-        type: Date,
+        type: String,
     },
     end_time:{
-        type: Date
+        type: String
     }
 });
 

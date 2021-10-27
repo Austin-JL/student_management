@@ -18,6 +18,6 @@ const courseSchema = new mongoose.Schema({
     },
 });
 
-courseShcema.plugin(uniqueValidator, { mongoose: mongoose });
+courseSchema.plugin(uniqueValidator, { mongoose: mongoose });
 
 module.exports = mongoose.model('Course',courseSchema)

@@ -29,9 +29,9 @@ const courseValidation = data => {
 
 const scheduleValidation = data => {
     const schema = Joi.object({
-        date: Joi.date().required(),
-        start_time: Joi.date().required(),
-        end_time: Joi.date().required(),
+        day: Joi.number().min(0).max(6),
+        start_time: Joi.string().required(),
+        end_time: Joi.string().required(),
         
     });
     return schema.validate(data)
