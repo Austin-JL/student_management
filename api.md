@@ -7,7 +7,8 @@ POST /course/create
 
 ```json
 {
-    "name": "Beginner",
+    //level can only be lower case
+    "name": "beginner",
     "cap": "12",
     "instructor": "gilbert"
     ...

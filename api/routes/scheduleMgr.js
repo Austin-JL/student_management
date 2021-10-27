@@ -6,11 +6,13 @@ const { scheduleValidation } = require('../validation');
 
 
 exports.saveSchedule = async function (req, res, next) {
-    //validate data before use
-    var course_id = req.params.id;
-    //const { error } = scheduleValidation(req.body.schedule);
-    //if (error) return res.status(400).send(error.details[0].message);
     
+    var course_id = req.params.id;
+
+    //validate data before use
+    const { error } = scheduleValidation(req.body.schedule);
+    if (error) return res.status(400).send(error.details[0].message);
+
     start_date = Date.parse(req.body.start_date);
     end_date = Date.parse(req.body.end_date);
     schedules = req.body.schedules;
@@ -26,6 +28,10 @@ exports.saveSchedule = async function (req, res, next) {
                 var tmp = loop.toISOString();
                 course_date = tmp.slice(0,10);
                 console.log(course_date);
+
+                //check if the schedule is already exist
+                const scheduleExist = await Schedule.findOne({courseId: course_id, course_date: course_date});
+                if (scheduleExist) return res.status(400).send('Schedule already exists')
 
                 //Create a new Course
                 const schedule = new Schedule({

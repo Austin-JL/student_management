@@ -7,6 +7,11 @@ exports.saveCourse = async function(req,res,next){
     const {error} = courseValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
+    //check if the course is already exist
+    const levelExist = await Course.findOne({level: req.body.level});
+    if (levelExist) return res.status(400).send('Course already exists');
+
+
     //Create a new Course
     const course = new Course({
         level: req.body.level,
