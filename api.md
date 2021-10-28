@@ -1,23 +1,23 @@
 
 
-## 创建课程
+## 1. 创建课程
 
 
-POST /course/create
+POST /courseRegister
 
 ```json
 {
     //level can only be lower case
     "name": "beginner",
-    "cap": "12",
+    "cap": 12,
     "instructor": "gilbert"
     ...
 }
 ```
 
-## 创建课程日程 
+## 2. 创建课程日程 
 
-POST /course/schedule/create
+POST /courseRegister/addTime
 
 ```json
 {
@@ -60,4 +60,41 @@ schema
 }
 ```
 
+## 3. 创建学生
 
+```json
+
+POST /studentRegister
+
+```json
+{
+    "name": "Austin Zhang",
+    "email": "austin.jl.zhang@gmail.com",
+    "phone": "5197816693",
+    "gender": "Male",
+    "age": 3,
+    "invoice": "#3223332",
+    "level" : "beginnner"
+    ...
+}
+
+
+```
+
+## 为学生添加课程
+
+```json
+
+POST /studentRegister/addSchedule
+
+```json
+{
+    "invoice": "#3223332",
+    "level": "beginner",
+    "days": [1,3,5],
+
+    ...
+}
+
+
+```

@@ -13,9 +13,9 @@ exports.saveSchedule = async function (req, res, next) {
     const { error } = scheduleValidation(req.body.schedule);
     if (error) return res.status(400).send(error.details[0].message);
 
-    start_date = Date.parse(req.body.start_date);
-    end_date = Date.parse(req.body.end_date);
-    schedules = req.body.schedules;
+    const start_date = Date.parse(req.body.start_date);
+    const end_date = Date.parse(req.body.end_date);
+    const schedules = req.body.schedules;
     let loop = new Date(start_date);
     console.log(loop);
     while (loop <= end_date) {

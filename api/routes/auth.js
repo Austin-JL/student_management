@@ -12,8 +12,8 @@ const scheduleMgr = require('./scheduleMgr')
 
 router.post('/studentRegister', studentMgr.saveStudent);
 router.post('/courseRegister', courseMgr.saveCourse);
-router.post('/courseRegister/addTime/:id', scheduleMgr.saveSchedule)
-
+router.post('/courseRegister/addSchedule/:id', scheduleMgr.saveSchedule)
+router.post('/studentRegister/addSchedule/:invoice', studentMgr.addSchedule)
 //Login
 // router.post('/login', async (req,res) => {
 //     const {error} = loginValidation(req.body);
