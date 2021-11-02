@@ -83,6 +83,8 @@ POST /studentRegister
 
 ## 为学生添加课程
 
+coure 的 cap - 1 (未完成)
+
 ```json
 
 POST /studentRegister/addSchedule
@@ -98,3 +100,37 @@ POST /studentRegister/addSchedule
 
 
 ```
+
+## Review student
+
+```json
+{
+    "invoice": ""
+    
+}
+
+## Remain api
+
+课程的删除
+
+schedule的删除
+
+student的删除
+
+student 的请假
+
+student 的补课
+
+student 的search
+
+student 的 update
+
+
+点名
+
+学生的login
+
+需要一个记录学生请假的东西
+
+
+
